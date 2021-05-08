@@ -1,3 +1,5 @@
+//dynamic stack
+
 class stack
 {
 int data[];
