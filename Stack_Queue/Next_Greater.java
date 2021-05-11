@@ -36,6 +36,7 @@ public static void main(String[] args) throws Exception {
    for(int i=n-2;i>=0;i--)
     {
 		int val=nger[i];
+    
 		while(st.size()>0 && st.peek()<=val)
 		{
 			st.pop();
