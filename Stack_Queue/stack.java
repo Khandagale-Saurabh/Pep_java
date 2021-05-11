@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 class stack<T>
+=======
+//dynamic stack
+
+class stack
+>>>>>>> dfcc93ff8f3640e132dbed6537910090e212f80b
 {
 T data[];
 int tos;
