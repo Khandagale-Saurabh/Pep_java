@@ -2,6 +2,8 @@ import java.io.*;
 import java.util.*;
 // 2+3*3
 public class Infix{
+
+
 public static void main(String[] args) throws Exception 
 {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -15,7 +17,6 @@ public static void main(String[] args) throws Exception
 	   if(ch=='(')
 	   {
 		operation_wala_stck.push(ch);
-		System.out.println("=========");
 		}
 		else if(Character.isDigit(ch))
 		{
@@ -24,12 +25,12 @@ public static void main(String[] args) throws Exception
 	  else if(ch==')')//(2*7+3)
 		{
 		  while(operation_wala_stck.peek()!='(')
-		  { 
-			   int v=0;
-					  int val1=0;
-					  int  val2=0;
-					  char ch1=' ';
-			  fun( ch1, val2 , val1, v, Number_wala_stck,operation_wala_stck);
+		  {
+		   	 char ch1=operation_wala_stck.pop();
+		   			 int val2=Number_wala_stck.pop();
+		   			 int val1=Number_wala_stck.pop();
+		   			 int v=opeartion(val1,val2,ch1);
+			 Number_wala_stck.push(v);
 		   }
 		   operation_wala_stck.pop();
 		 }
@@ -38,25 +39,25 @@ public static void main(String[] args) throws Exception
 		 	   {
 		 		   while(operation_wala_stck.size()>0 &&operation_wala_stck.peek()!='(' && precedences(ch)<=precedences(operation_wala_stck.peek()))
 		 		   {
-		 			 //fun();
-					  int v=0;
-					  int val1=0;
-					  int  val2=0;
-					  char ch1=' ';
-					  fun( ch1, val2 , val1, v, Number_wala_stck,operation_wala_stck);
+		 			 char ch1=operation_wala_stck.pop();
+		 			 int val2=Number_wala_stck.pop();
+		 			 int val1=Number_wala_stck.pop();
+		 			 int v=opeartion(val1,val2,ch1);
+		 			 Number_wala_stck.push(v);
 		 		   }
 		 		   operation_wala_stck.push(ch);
-		       }
+		}
 
 	}
-	     while(operation_wala_stck.size()!=0)
+	while(operation_wala_stck.size()!=0)
 			 {
-			     int v=0;
-					  int val1=0;
-					  int  val2=0;
-					  char ch1=' ';
-					  fun( ch1, val2 , val1, v, Number_wala_stck,operation_wala_stck);
-		    }
+			   char cch=operation_wala_stck.pop();
+			   		     int val2=Number_wala_stck.pop();
+			   		     int val1=Number_wala_stck.pop();
+			   		     int opv=opeartion(val1,val2,cch);
+			   		     int y=opeartion(val1,val2,cch);
+			     Number_wala_stck.push(y);
+		  }
 		  System.out.println(Number_wala_stck.peek());
  }
 
@@ -99,14 +100,4 @@ public static void main(String[] args) throws Exception
 				}
 		}
 
-  			public static  void  fun(char ch1, int val2 ,int val1, int v, Stack<Integer>  Number_wala_stck,Stack<Character> operation_wala_stck)
- 				 {
-	   				 ch1=operation_wala_stck.pop();
-		 			  val2=Number_wala_stck.pop();
-		 			  val1=Number_wala_stck.pop();
-		 			  v=opeartion(val1,val2,ch1);
-		 			 Number_wala_stck.push(v);
- 				 }
-
 }
-
