@@ -4,7 +4,7 @@
        {
            return head;
        }
-
+//ds
        ListNode DummyEven=new ListNode(-1);
        ListNode DummyOdd=new ListNode(-1);
        ListNode evenTail=DummyEven,oddTail=DummyOdd;
